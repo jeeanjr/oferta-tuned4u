@@ -11,63 +11,90 @@
 :root{
   --gold:#C9A84C;--gold2:#E8C97A;
   --gold-grad:linear-gradient(135deg,#C9A84C,#E8C97A);
-  --bg:#0f0e0c;--card:#1C1A16;--border:rgba(201,168,76,0.18);
+  --bg:#0f0e0c;--card:#1C1A16;--card2:#221f19;
+  --border:rgba(201,168,76,0.18);--border2:rgba(201,168,76,0.32);
   --text:#F5F0E8;--text2:#B8A880;--muted:#6B6050;
+  --green:#2d7d52;
 }
 html,body{min-height:100vh;background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;overflow-x:hidden}
 body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellipse 70% 40% at 50% 0%,rgba(201,168,76,0.07) 0%,transparent 60%);pointer-events:none;z-index:0}
-.page{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:40px 20px 80px;text-align:center}
-
-.logo{height:36px;width:auto;display:block;margin:0 auto 40px}
-
+.page{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:36px 20px 80px;text-align:center}
+.logo{height:34px;width:auto;display:block;margin:0 auto 36px}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .f1{animation:fadeUp .6s ease both}
-.f2{animation:fadeUp .6s .15s ease both}
-.f3{animation:fadeUp .6s .28s ease both}
-.f4{animation:fadeUp .6s .4s ease both}
-.f5{animation:fadeUp .6s .52s ease both}
-.f6{animation:fadeUp .6s .64s ease both}
+.f2{animation:fadeUp .6s .12s ease both}
+.f3{animation:fadeUp .6s .22s ease both}
+.f4{animation:fadeUp .6s .32s ease both}
+.f5{animation:fadeUp .6s .42s ease both}
+.f6{animation:fadeUp .6s .52s ease both}
+.f7{animation:fadeUp .6s .62s ease both}
 
-.gift-icon{font-size:2.8rem;margin-bottom:16px}
-.eyebrow{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
-.headline{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,8vw,3rem);font-weight:600;background:var(--gold-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.15;margin-bottom:6px}
-.subline{font-size:.9rem;color:var(--text2);margin-bottom:32px}
+.gift-icon{font-size:2.6rem;margin-bottom:14px}
+.eyebrow{font-size:.63rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
+.headline{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,7vw,2.8rem);font-weight:600;background:var(--gold-grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.15;margin-bottom:8px}
+.subline{font-size:.88rem;color:var(--text2);margin-bottom:28px;line-height:1.6}
 
-.song-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:22px 24px;margin-bottom:28px;text-align:left}
-.song-tag{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,.1);display:inline-block;padding:3px 10px;border-radius:20px;margin-bottom:10px}
-.song-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--gold2);margin-bottom:4px}
-.song-for{font-size:.8rem;color:var(--text2)}
+.song-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin-bottom:20px;text-align:left}
+.song-tag{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,.1);display:inline-block;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+.song-title{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-style:italic;color:var(--gold2);margin-bottom:4px}
+.song-for{font-size:.78rem;color:var(--text2)}
 
-.reveal-box{background:rgba(201,168,76,.06);border:1.5px solid var(--gold);border-radius:16px;padding:28px 24px;margin-bottom:24px}
-.reveal-label{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text2);margin-bottom:12px}
-.prices{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:12px}
-.price-old{font-size:1.2rem;color:var(--muted);text-decoration:line-through}
-.price-new{font-size:2.6rem;font-weight:700;color:var(--gold);line-height:1}
-.timer-row{display:flex;align-items:flex-start;justify-content:center;gap:6px;margin-top:14px}
+/* Desconto */
+.discount-banner{background:var(--gold-grad);border-radius:14px;padding:22px;margin-bottom:16px;text-align:center}
+.discount-label{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(15,14,12,.6);margin-bottom:12px}
+.discount-prices{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:8px}
+.price-old{font-size:1.3rem;color:rgba(15,14,12,.4);text-decoration:line-through;font-weight:600;font-family:'Inter',sans-serif}
+.price-new{font-size:2.8rem;font-weight:800;color:#0f0e0c;line-height:1;font-family:'Inter',sans-serif}
+.discount-badge{display:inline-block;background:rgba(15,14,12,.15);color:#0f0e0c;font-size:.72rem;font-weight:700;padding:4px 14px;border-radius:20px}
+
+/* Bonus */
+.bonus-box{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:18px 22px;margin-bottom:20px;text-align:left}
+.bonus-header{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.bonus-header::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
+.bonus-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px}
+.bonus-item:last-child{margin-bottom:0}
+.bonus-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+.bonus-text strong{color:var(--text);display:block;margin-bottom:2px;font-size:.84rem}
+.bonus-text span{font-size:.78rem;color:var(--text2);line-height:1.5}
+
+/* Entrega destaque */
+.delivery-card{background:rgba(45,125,82,.1);border:1px solid rgba(45,125,82,.35);border-radius:14px;padding:18px 22px;margin-bottom:20px;display:flex;align-items:center;gap:14px;text-align:left}
+.delivery-icon{font-size:2rem;flex-shrink:0}
+.delivery-title{font-size:1rem;font-weight:700;color:#4ade80;margin-bottom:2px}
+.delivery-sub{font-size:.8rem;color:var(--text2);line-height:1.5}
+
+/* Timer */
+.timer-wrap{background:rgba(201,168,76,.06);border:1px solid var(--border2);border-radius:14px;padding:18px 22px;margin-bottom:20px;text-align:center}
+.timer-label-txt{font-size:.7rem;color:var(--text2);margin-bottom:12px}
+.timer-row{display:flex;align-items:flex-start;justify-content:center;gap:6px}
 .timer-unit{display:flex;flex-direction:column;align-items:center;gap:3px}
-.timer-box{background:#0f0e0c;color:var(--gold2);font-size:1.4rem;font-weight:700;padding:8px 12px;border-radius:8px;min-width:44px;font-variant-numeric:tabular-nums;border:1px solid rgba(201,168,76,.2)}
-.timer-sep{color:var(--gold);font-size:1.4rem;font-weight:700;padding-top:8px}
-.timer-label{font-size:.65rem;color:var(--muted)}
-.timer-text{font-size:.75rem;color:var(--text2);margin-top:10px}
+.timer-dig{background:#0f0e0c;color:var(--gold2);font-size:1.8rem;font-weight:700;padding:10px 16px;border-radius:8px;min-width:58px;font-variant-numeric:tabular-nums;border:1px solid rgba(201,168,76,.2)}
+.timer-sep{color:var(--gold);font-size:1.8rem;font-weight:700;padding-top:10px}
+.timer-unit-label{font-size:.62rem;color:var(--muted)}
+.timer-sub{font-size:.72rem;color:var(--muted);margin-top:10px}
 
-.cta-btn{display:block;width:100%;background:var(--gold-grad);color:#0f0e0c;font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;padding:18px 24px;border-radius:12px;text-decoration:none;border:none;cursor:pointer;transition:opacity .2s;margin-bottom:12px}
+/* CTA */
+.cta-btn{display:block;width:100%;background:var(--gold-grad);color:#0f0e0c;font-family:'Inter',sans-serif;font-weight:700;font-size:1rem;padding:18px 24px;border-radius:12px;text-decoration:none;border:none;cursor:pointer;transition:opacity .2s;margin-bottom:10px}
 .cta-btn:hover{opacity:.88}
-.cta-sub{font-size:.75rem;color:var(--muted)}
+.cta-trust{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:28px}
+.trust-item{font-size:.72rem;color:var(--muted)}
 
-.divider{width:40px;height:1px;background:rgba(201,168,76,.2);margin:28px auto}
-
-.footer-brand{font-size:.72rem;color:var(--muted)}
+.divider{width:40px;height:1px;background:rgba(201,168,76,.15);margin:0 auto 20px}
+.footer-txt{font-size:.7rem;color:var(--muted)}
 </style>
 </head>
 <body>
 <div class="page">
-  <img class="logo f1" src="https://qqxmdszwvwooqonmnvzf.supabase.co/storage/v1/object/public/assets/logo.tuned4u.nobackground.png" alt="Tuned4U">
+
+  <img class="logo f1"
+    src="https://qqxmdszwvwooqonmnvzf.supabase.co/storage/v1/object/public/assets/logo.tuned4u.nobackground.png"
+    alt="Tuned4U" onerror="this.style.display='none'">
 
   <div class="f2">
     <div class="gift-icon">🎁</div>
     <p class="eyebrow">Dejamos algo para ti</p>
-    <h1 class="headline" id="headline">Un regalo<br>especial</h1>
-    <p class="subline" id="subline">Solo para ti, por tiempo limitado</p>
+    <h1 class="headline" id="headline">—</h1>
+    <p class="subline" id="subline">—</p>
   </div>
 
   <div class="song-card f3">
@@ -76,69 +103,120 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
     <p class="song-for" id="song-for">—</p>
   </div>
 
-  <div class="reveal-box f4">
-    <p class="reveal-label">Precio especial de hoy</p>
-    <div class="prices">
-      <span class="price-old" id="price-old">—</span>
-      <span class="price-new" id="price-new">—</span>
+  <div class="discount-banner f4">
+    <p class="discount-label">Precio especial — solo para <span id="nome-banner">ti</span></p>
+    <div class="discount-prices">
+      <span class="price-old" id="price-old"></span>
+      <span class="price-new" id="price-new"></span>
     </div>
+    <span class="discount-badge">30% de descuento aplicado</span>
+  </div>
+
+  <div class="bonus-box f4">
+    <p class="bonus-header">Incluido de regalo</p>
+    <div class="bonus-item">
+      <span class="bonus-icon">🎵</span>
+      <div class="bonus-text">
+        <strong>Reproductor personalizado</strong>
+        <span>Un player elegante con la portada y el nombre, listo para compartir.</span>
+      </div>
+    </div>
+    <div class="bonus-item">
+      <span class="bonus-icon">🎤</span>
+      <div class="bonus-text">
+        <strong>Cancion 100% original</strong>
+        <span>Creada exclusivamente para <span class="hom-inline">—</span>, con tu historia y tus palabras.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="delivery-card f5">
+    <div class="delivery-icon">⚡</div>
+    <div>
+      <p class="delivery-title">Entrega en 30 minutos</p>
+      <p class="delivery-sub">Confirmas ahora y en menos de 30 minutos <span class="hom-inline">—</span> recibe la cancion directamente en el email.</p>
+    </div>
+  </div>
+
+  <div class="timer-wrap f5">
+    <p class="timer-label-txt">Esta oportunidad vence en</p>
     <div class="timer-row">
       <div class="timer-unit">
-        <div class="timer-box" id="t-min">29</div>
-        <div class="timer-label">min</div>
+        <div class="timer-dig" id="t-min">29</div>
+        <div class="timer-unit-label">min</div>
       </div>
       <span class="timer-sep">:</span>
       <div class="timer-unit">
-        <div class="timer-box" id="t-sec">59</div>
-        <div class="timer-label">seg</div>
+        <div class="timer-dig" id="t-sec">59</div>
+        <div class="timer-unit-label">seg</div>
       </div>
     </div>
-    <p class="timer-text">Esta oportunidad vence cuando el contador llegue a cero.</p>
+    <p class="timer-sub">Cuando el contador llegue a cero, el precio vuelve al normal.</p>
   </div>
 
-  <div class="f5">
+  <div class="f6">
     <a class="cta-btn" id="cta-link" href="#">Completar el regalo de <span id="cta-nome">—</span></a>
-    <p class="cta-sub">Pago seguro · Entrega hoy · Garantia de 7 dias</p>
+    <div class="cta-trust">
+      <span class="trust-item">🔒 Pago seguro</span>
+      <span class="trust-item">⚡ Entrega en 30 min</span>
+      <span class="trust-item">✓ Garantia 7 dias</span>
+    </div>
   </div>
 
-  <div class="divider f6"></div>
-  <p class="footer-brand f6">Tuned4U · contact@tuned4u.com</p>
+  <div class="divider f7"></div>
+  <p class="footer-txt f7">Tuned4U · contact@tuned4u.com</p>
+
 </div>
 
 <script>
 const params = new URLSearchParams(location.search);
-function p(k){ const v=(params.get(k)||'').trim(); return v.startsWith('{{') ? '' : v; }
+function p(k){ const v = decodeURIComponent(params.get(k) || '').trim(); return v.startsWith('{{') ? '' : v; }
 
-const nome       = p('nome');
-const homenageado= p('homenageado') || nome;
-const titulo     = p('titulo') || 'Tu cancion personalizada';
-const precoOrig  = parseFloat(p('preco_original')) || 0;
-const precoDesc  = parseFloat(p('preco_desconto')) || 0;
-const link       = p('link') || 'https://pago.tuned4u.com';
+const nome        = p('nome');
+const homenageado = p('homenageado') || nome;
+const titulo      = p('titulo') || 'Tu cancion personalizada';
+const precoOrig   = parseFloat(p('preco_original')) || 0;
+const precoDesc   = parseFloat(p('preco_desconto')) || 0;
+const link        = p('link') || 'https://pago.tuned4u.com';
 
-// Preencher
-const nomeFirst = homenageado.split(' ')[0] || homenageado;
-document.getElementById('headline').innerHTML = nomeFirst + '<br><span style="font-style:italic">vai adorar isso</span>';
-document.getElementById('subline').textContent = 'Preparamos algo especial para ' + nomeFirst + ', so para voce.';
+const nomeFirst   = (nome || '').split(' ')[0] || '';
+const homFirst    = (homenageado || '').split(' ')[0] || homenageado;
+
+// Headline personalizado com nome do comprador
+if(nomeFirst){
+  document.getElementById('headline').textContent = nomeFirst + ', ' + homFirst + ' va a amar esto';
+} else {
+  document.getElementById('headline').textContent = homFirst + ' va a amar esto';
+}
+document.getElementById('subline').textContent = 'Preparamos algo especial para ' + (homFirst || 'ti') + ', solo para ' + (nomeFirst || 'ti') + '.';
 document.getElementById('song-title').textContent = titulo;
-document.getElementById('song-for').textContent = 'Creada especialmente para ' + homenageado + ', com sua historia';
-document.getElementById('price-old').textContent = precoOrig > 0 ? '$' + precoOrig.toFixed(2) : '';
-document.getElementById('price-new').textContent = precoDesc > 0 ? '$' + precoDesc.toFixed(2) : '';
-document.getElementById('cta-nome').textContent = homenageado;
-document.getElementById('cta-link').href = link;
+document.getElementById('song-for').textContent   = 'Creada especialmente para ' + (homenageado || '—') + ', con tu historia';
+document.getElementById('nome-banner').textContent = nomeFirst || 'ti';
+document.getElementById('cta-nome').textContent    = homenageado || '—';
+document.getElementById('cta-link').href           = link;
 
-// Timer 30 min — persiste por sessão
+// Preco com desconto — mostra riscado + novo
+if(precoOrig > 0) document.getElementById('price-old').textContent = '$' + precoOrig.toFixed(2);
+if(precoDesc > 0) document.getElementById('price-new').textContent = '$' + precoDesc.toFixed(2);
+
+// Preenche todos os .hom-inline
+document.querySelectorAll('.hom-inline').forEach(el => el.textContent = homFirst || homenageado || '—');
+
+// Timer 30 min persistente
 let end;
-try{
+try {
   const k = 'oferta_timer_' + (p('lead_id') || 'x');
   end = parseInt(sessionStorage.getItem(k) || '0');
-  if(!end || end < Date.now()){ end = Date.now() + 30*60*1000; sessionStorage.setItem(k, String(end)); }
-}catch(e){ end = Date.now() + 30*60*1000; }
+  if (!end || end < Date.now()) {
+    end = Date.now() + 30 * 60 * 1000;
+    sessionStorage.setItem(k, String(end));
+  }
+} catch(e) { end = Date.now() + 30 * 60 * 1000; }
 
 function tick(){
   const s = Math.max(0, Math.floor((end - Date.now()) / 1000));
-  document.getElementById('t-min').textContent = String(Math.floor(s/60)).padStart(2,'0');
-  document.getElementById('t-sec').textContent = String(s%60).padStart(2,'0');
+  document.getElementById('t-min').textContent = String(Math.floor(s / 60)).padStart(2,'0');
+  document.getElementById('t-sec').textContent = String(s % 60).padStart(2,'0');
   if(s <= 0) clearInterval(timer);
 }
 tick();
