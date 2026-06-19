@@ -170,7 +170,16 @@ body::before{content:'';position:fixed;inset:0;background:radial-gradient(ellips
 
 <script>
 const params = new URLSearchParams(location.search);
-function p(k){ const v = decodeURIComponent(params.get(k) || '').trim(); return v.startsWith('{{') ? '' : v; }
+
+// URLSearchParams.get() JA decodifica automaticamente.
+// NAO usar decodeURIComponent de novo (quebrava com o param 'link' que tem URL codificada dentro).
+function p(k){
+  let v = params.get(k);
+  if (v === null || v === undefined) return '';
+  v = String(v).trim();
+  if (v.indexOf('{{') === 0) return '';
+  return v;
+}
 
 const nome        = p('nome');
 const homenageado = p('homenageado') || nome;
@@ -182,25 +191,29 @@ const link        = p('link') || 'https://pago.tuned4u.com';
 const nomeFirst   = (nome || '').split(' ')[0] || '';
 const homFirst    = (homenageado || '').split(' ')[0] || homenageado;
 
+function setText(id, txt){ const el = document.getElementById(id); if(el) el.textContent = txt; }
+
 // Headline personalizado com nome do comprador
 if(nomeFirst){
-  document.getElementById('headline').textContent = nomeFirst + ', ' + homFirst + ' va a amar esto';
+  setText('headline', nomeFirst + ', ' + homFirst + ' va a amar esto');
 } else {
-  document.getElementById('headline').textContent = homFirst + ' va a amar esto';
+  setText('headline', (homFirst || 'Alguien') + ' va a amar esto');
 }
-document.getElementById('subline').textContent = 'Preparamos algo especial para ' + (homFirst || 'ti') + ', solo para ' + (nomeFirst || 'ti') + '.';
-document.getElementById('song-title').textContent = titulo;
-document.getElementById('song-for').textContent   = 'Creada especialmente para ' + (homenageado || '—') + ', con tu historia';
-document.getElementById('nome-banner').textContent = nomeFirst || 'ti';
-document.getElementById('cta-nome').textContent    = homenageado || '—';
-document.getElementById('cta-link').href           = link;
+setText('subline', 'Preparamos algo especial para ' + (homFirst || 'ti') + ', solo para ' + (nomeFirst || 'ti') + '.');
+setText('song-title', titulo);
+setText('song-for', 'Creada especialmente para ' + (homenageado || 'esa persona') + ', con tu historia');
+setText('nome-banner', nomeFirst || 'ti');
+setText('cta-nome', homenageado || 'esa persona');
+
+const ctaEl = document.getElementById('cta-link');
+if(ctaEl) ctaEl.href = link;
 
 // Preco com desconto — mostra riscado + novo
-if(precoOrig > 0) document.getElementById('price-old').textContent = '$' + precoOrig.toFixed(2);
-if(precoDesc > 0) document.getElementById('price-new').textContent = '$' + precoDesc.toFixed(2);
+if(precoOrig > 0) setText('price-old', '$' + precoOrig.toFixed(2));
+if(precoDesc > 0) setText('price-new', '$' + precoDesc.toFixed(2));
 
 // Preenche todos os .hom-inline
-document.querySelectorAll('.hom-inline').forEach(el => el.textContent = homFirst || homenageado || '—');
+document.querySelectorAll('.hom-inline').forEach(function(el){ el.textContent = homFirst || homenageado || 'esa persona'; });
 
 // Timer 30 min persistente
 let end;
@@ -213,14 +226,15 @@ try {
   }
 } catch(e) { end = Date.now() + 30 * 60 * 1000; }
 
+let timer;
 function tick(){
   const s = Math.max(0, Math.floor((end - Date.now()) / 1000));
-  document.getElementById('t-min').textContent = String(Math.floor(s / 60)).padStart(2,'0');
-  document.getElementById('t-sec').textContent = String(s % 60).padStart(2,'0');
-  if(s <= 0) clearInterval(timer);
+  setText('t-min', String(Math.floor(s / 60)).padStart(2,'0'));
+  setText('t-sec', String(s % 60).padStart(2,'0'));
+  if(s <= 0 && timer) clearInterval(timer);
 }
 tick();
-const timer = setInterval(tick, 1000);
+timer = setInterval(tick, 1000);
 </script>
 </body>
 </html>
